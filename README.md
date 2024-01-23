@@ -2,7 +2,7 @@
 
 This is a template repository for a overlay repository for [TCLB Solver](https://github.com/CFD-GO/TCLB). Kind of a layer you can put on top of the TCLB's repository to allow you to develop and share your models or cases in your own repo, without the "baggage" of the main repo.
 
-## How to use:
+## How to use
 After you create your own repository from this template you can:
 ```bash
 git clone git@github.com:your_user/your_repo.git project
@@ -20,6 +20,25 @@ git push
 ```
 
 ## Advanced use
+
+### Selecting TCLB repo and branch
+You can select the repo and branch with the `--tclb url@branch` option:
+```bash
+./update.sh --tclb git@github.com/my_user/TCLB.git # the my_user's fork
+./update.sh --tclb git@github.com/my_user/TCLB.git@develop # develop branch from my_user's fork
+./update.sh --tclb @develop # develop branch from the main repository
+```
+
+### Saving the default TCLB repo and branch
+You can create a file `.overlay.config` with the default TCLB fork and branch to use when `./update.sh` is run:
+```bash
+> cat .overlay.config
+TCLB_FORK='my_user/TCLB'
+TCLB_BRANCH='develop'
+> git add .overlay.config
+> git commit -m "Adding default TCLB repo and branch"
+```
+You can also use the commandline option from the previous section with `--save` to create this file.
 
 ### Operating on TCLB repository
 And can operate on the TCLB repository with `git tclb` command:
