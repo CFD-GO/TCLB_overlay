@@ -184,7 +184,7 @@ URL_TCLB="$(gittclb remote get-url origin 2>/dev/null || true)"
 
 if test -z "$URL_TCLB"; then
     if ! test -z "$WANT_URL_TCLB"; then
-        TCLB_OVER="$WANT_URL_TCLB"
+        URL_TCLB="$WANT_URL_TCLB"
     else
         if test -z "$TCLB_FORK"; then
             TCLB_FORK="CFD-GO/TCLB"
